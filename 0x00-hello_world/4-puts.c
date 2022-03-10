@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * Print Programming is like building a multilingual puzzle
+ *main - Print Programming is like building a multilingual puzzle
  * 
- * Return: 0 (success)
+ * Return: 0 (Success)
  */
 
 int main(void)
