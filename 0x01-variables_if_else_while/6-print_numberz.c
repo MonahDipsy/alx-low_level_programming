@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /***
- * main - Print base 10 numbers
+ * main - Print base 10 numbers from 0
  *
  * Return: 0 if successful
  */
