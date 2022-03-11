@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /***
- * main - Print base 10 numbers from 0 to 9.
+ * main - Print numbers between 0 to 9.
  *
  * Return: 0 if successful
  */
