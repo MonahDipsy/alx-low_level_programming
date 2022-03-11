@@ -4,7 +4,7 @@
 
 /**
  * main - Print whether number stored in variable n is positive, negative or zero
- * Return 0 if successful, otherwise not 0 unsuccessful
+ * Return: 0 if successful, otherwise not 0 unsuccessful
  *
  */
 int main(void)
