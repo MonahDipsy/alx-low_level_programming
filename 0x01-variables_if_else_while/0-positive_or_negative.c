@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * main - variable n will store a different value every time program is run
+ * main - assign a random number to int n
  * 
  * Return: 0 if successful, otherwise not successful 
  */
@@ -19,5 +19,5 @@ int main(void)
 		printf("%d is zero\n", n);
 	else if (n < 0)
 		printf("%d is negative\n", n);
-	return (0);
+			return (0);
 }
