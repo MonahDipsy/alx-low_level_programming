@@ -5,7 +5,7 @@
 /**
  * main - variable n will store a different value every time program is run
  * 
- * Return: 0 
+ * Return: 0 if successful, otherwise not successful 
  */
 int main(void)
 {
