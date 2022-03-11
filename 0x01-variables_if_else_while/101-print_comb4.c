@@ -1,11 +1,12 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers between 012 to 789.
+ * main - Prints 3 digits possible combintion outcome
  *
- * Return: Always 0 (Success)
+ * Return: 0 if successful
  */
 int main(void)
+
 {
 	int i, e, g;
 
