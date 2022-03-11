@@ -7,31 +7,31 @@
  */
 int main(void)
 {
-	int i, e;
+	int x, y;
 
-	i = 32;
-	e = 32;
+	x = 37;
+	y = 37;
 
-	while (e < 42)
+	while (y < 47)
 	{
-		i = 32;
-		while (i < 42)
+		x = 37;
+		while (x < 47)
 		{
-			if (e != i && e < i)
+			if (y != x && y < i)
 			{
-				putchar(e);
-				putchar(i);
-				if (i == 31 && e == 30)
+				putchar(y);
+				putchar(x);
+				if (x == 46 && y == 45)
 				{
 					break;
 				}
 				putchar(',');
 				putchar(' ');
 			}
-			i++;
+			x++;
 
 		}
-		e++;
+		y++;
 	}
 	putchar('\n');
 	return (0);
