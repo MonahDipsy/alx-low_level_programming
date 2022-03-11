@@ -1,35 +1,6 @@
 #include <stdio.h>
 
 /**
-<<<<<<< HEAD
- * main - Print all possible combination of three numbers
- *
- * Return: 0 if successful
- */
-int main(void)
-{
-	int c = 0;
-	int f_d;
-	int m_d;
-	int l_d;
-
-	while (c <= 999)
-	{
-		f_d = (c / 100 + '0');
-		m_d = (c / 10 % 10 +'0');
-		l_d = (c % 10 + '0');
-
-		if ((f_d < m_d) && (m_d < l_d))
-		{
-			putchar(f_d);
-			putchar(m_d);
-			putchar(l_d);
-
-			if (c != 789)
-			{
-				putchar(',');
-				putchar(' ');
-=======
  * main - Prints numbers between 012 to 789.
  *
  * Return: Always 0 (Success)
@@ -63,16 +34,11 @@ int main(void)
 					putchar(' ');
 				}
 				g++;
->>>>>>> 4105c2580858ef949f563581ca5b725036706cda
 			}
 			i++;
 		}
-<<<<<<< HEAD
-		c++;
-=======
 		e++;
->>>>>>> 4105c2580858ef949f563581ca5b725036706cda
 	}
-	putchat('\n');
+	putchar('\n');
 	return (0);
 }
