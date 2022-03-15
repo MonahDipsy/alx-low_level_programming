@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * main - Entry point
- * Print alphabet in lowercase followeed by new line
+ * print_alphabet - prints the english alphabet from a-z
+ *
  * Return: Always 0 (Successful)
  */
 void print_alphabet(void)
