@@ -6,8 +6,9 @@
  * Return: Always 0 (Success)
  */
 int main()
-int putchar(int char)
+
 {
+	int putchar(int char)
 
 	_putchar('_');
 	_putchar('p');
