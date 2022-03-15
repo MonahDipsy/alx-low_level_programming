@@ -1,25 +1,24 @@
-#include <unistd.h>
 #include "main.h"
 
 /**
- * main - Prints _putchar followed by a new line
- * Return: Always 0 (Success)
+ * main - check the code for School students
+ *
+ * Program that prints _putchar, followed by a new line
+ *
+ * Return: always 0 (success)
  */
-int main()
 
+int main(void)
 {
-	int putchar(int char)
+	char s[] = "_putchar";
+	int i = 0;
 
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-
-	_putchar('\n');
+	while (s[i] != '\0')
+	{
+		_putchar(s[i]);
+		i++;
+	}
+	_putchar(10);
 
 	return (0);
 }
