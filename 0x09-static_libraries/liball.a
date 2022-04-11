@@ -1,360 +1,521 @@
 !<arch>
-0-isupper.c/    1478289987  1000  1000  100664  153       `
-#include <unistd.h>
+0-isupper.c/    0           0     0     644     207       `
+#include "main.h"
 
 /**
- * _isupper - writes the character c to stdout
- * @c: The character to print
- * Return: 0
+ * _isupper - checks for uppercase character
+ * @c: the character to be checked
+ * Return: 1 if c is uppercase, 0 otherwise
  */
 int _isupper(int c)
 {
-	return 0;
+	return (c >= 'A' && c <= 'Z');
 }
-0-memset.c/     1478290687  1000  1000  100664  231       `
-#include <unistd.h>
+
+0-memset.c/     0           0     0     644     329       `
+#include "main.h"
 
 /**
- * _memset - function that fills memory with a constant byte.
- * @b: b character
- * @s: s character
- * @n: int n
- * Return: On success 1.
+ * *_memset - fills memory with a constant byte
+ * @s: memory area to be filled
+ * @b: char to copy
+ * @n: number of times to copy b
+ *
+ * Return: pointer to the memory area s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
+
 	return (s);
 }
 
-0-strcat.c/     1478290914  1000  1000  100664  218       `
-#include <unistd.h>
+0-strcat.c/     0           0     0     644     368       `
+#include "main.h"
+
 /**
- * _strcat -  function that concatenates two strings.
- * @src: parameter to a src
- * @dest: parameter to append
- * Return: Always 0.
+ * _strcat - concatenates two strings
+ * @dest: string to append to
+ * @src: string to add
+ *
+ * Return: a pointer to the resulting string
  */
 char *_strcat(char *dest, char *src)
 {
+	int i, j;
+
+	i = 0;
+	j = 0;
+
+	while (dest[i] != '\0')
+		i++;
+
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+
+	dest[i] = '\0';
+
 	return (dest);
 }
-100-atoi.c/     1478291896  1000  1000  100664  164       `
-#include <unistd.h>
+100-atoi.c/     0           0     0     644     594       `
+#include "main.h"
 
 /**
- * _atoi - function that convert a string to an integer
- * @s: The character to print
- * Return: 0
+ * _atoi - converts a string to an integer
+ * @s: string to be converted
+ *
+ * Return: the int converted from the string
  */
 int _atoi(char *s)
 {
-	return (0);
+	int i, d, n, len, f, digit;
+
+	i = 0;
+	d = 0;
+	n = 0;
+	len = 0;
+	f = 0;
+	digit = 0;
+
+	while (s[len] != '\0')
+		len++;
+
+	while (i < len && f == 0)
+	{
+		if (s[i] == '-')
+			++d;
+
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			digit = s[i] - '0';
+			if (d % 2)
+				digit = -digit;
+			n = n * 10 + digit;
+			f = 1;
+			if (s[i + 1] < '0' || s[i + 1] > '9')
+				break;
+			f = 0;
+		}
+		i++;
+	}
+
+	if (f == 0)
+		return (0);
+
+	return (n);
 }
-1-isdigit.c/    1478291123  1000  1000  100664  187       `
-#include <unistd.h>
+1-isdigit.c/    0           0     0     644     197       `
+#include "main.h"
+
 /**
- * _isdigit - function that checks for uppercase character.
- * @c: the int for the paramaters of my function
- * Return: 0
+ * _isdigit - checks for a digit (0 through 9)
+ * @c: int to be checked
+ * Return: 1 if c is a digit, 0 otherwise
  */
 int _isdigit(int c)
 {
-	return (0);
+	return (c >= '0' && c <= '9');
 }
 
-1-memcpy.c/     1478291470  1000  1000  100664  301       `
-#include <unistd.h>
+1-memcpy.c/     0           0     0     644     332       `
+#include "main.h"
+
 /**
- * _memcpy - copies n bytes form the memory area src
- * to memory area dest
- * @src: source code to copy
- * @dest: paramater for destination to  copy to
- * @n: how many bytes to copy
- * Return: dest;
+ * *_memcpy - copies memory area
+ * @dest: destination memory area
+ * @src: memory area to copy from
+ * @n: number of bytes to copy
+ *
+ * Return: pointer to dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		dest[i] = src[i];
+	}
+
 	return (dest);
 }
+1-strncat.c/    0           0     0     644     456       `
+#include "main.h"
 
-1-strncat.c/    1478294192  1000  1000  100664  258       `
-#include <unistd.h>
 /**
- * _strncat - function that concatenates two strings
- * @dest: parmater for dest to append to
- * @src: parameter for src
- * @n: parameter for n
- * Return: Always 0.
+ * _strncat - concatenates n bytes from a string to another
+ * @dest: destination string
+ * @src: source string
+ * @n: number of bytes of str to concatenate
+ *
+ * Return: a pointer to the resulting string dest
  */
 char *_strncat(char *dest, char *src, int n)
 {
+	int i, j;
+
+	i = 0;
+	j = 0;
+
+	while (dest[i] != '\0')
+		i++;
+
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+
+	dest[i] = '\0';
+
 	return (dest);
 }
-2-strchr.c/     1478294235  1000  1000  100664  309       `
-#include <unistd.h>
+2-strchr.c/     0           0     0     644     428       `
+#include "main.h"
+#include <stdio.h>
+
 /**
- * _strchr - returns a pointer to the first occurence of the
- * character c in the string s
- * @c: parameter for c to return
- * @s: string to search character
- * Return: pointer to first occurence of character c or null if not found
+ * *_strchr - locates a character in a string
+ * @s: string to search
+ * @c: char to find
+ *
+ * Return: a pointer to the first occurrence of the character
+ * c in the string s, or NULL if the character is not found
  */
 char *_strchr(char *s, char c)
 {
-	return (s);
-}
+		int a;
 
-2-strlen.c/     1478292386  1000  1000  100664  254       `
-#include <unistd.h>
+		while (1)
+		{
+			a = *s++;
+			if (a == c)
+			{
+				return (s - 1);
+			}
+			if (a == 0)
+			{
+				return (NULL);
+			}
+		}
+}
+2-strlen.c/     0           0     0     644     228       `
+#include "main.h"
+
 /**
- * _strlen - check the code for Holberton School students.
- * @s: declaration of *s and paramters for the function _strlen
- * Return: Always 0.
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
  */
 int _strlen(char *s)
 {
-	int c;
+	int i;
 
-	for (c = 0; s[c] != 0; c++)
+	i = 0;
+
+	while (s[i] != '\0')
 	{
+		i++;
 	}
-	return (c);
-}
-2-strncpy.c/    1478292502  1000  1000  100664  414       `
-/**
- * _strncpy - check the code for Holberton School students.
- * @src: parameter to a src to copy
- * @dest: parameter for dest
- * @n: parameter for number of bytes
- * Return: Always 0.
- */
 
+	return (i);
+}
+2-strncpy.c/    0           0     0     644     383       `
+#include "main.h"
+
+/**
+ * _strncpy - copies a string
+ * @dest: destination string
+ * @src: source string
+ * @n: number of bytes to copy
+ *
+ * Return: pointer to the resulting string
+ */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int a = 0;
-	int b = 0;
+	int i;
 
-	while (a != n)
+	i = 0;
+
+	while (src[i] != '\0' && i < n)
 	{
-		dest[b] = src[a];
-		b++;
-		a++;
-		if (src[a] == '\0')
-		{
-			break;
-		}
+		dest[i] = src[i];
+		i++;
 	}
-	while (b != n)
-		dest[b++] = '\0';
+
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+
 	return (dest);
 }
-3-islower.c/    1478292572  1000  1000  100664  257       `
-#include "holberton.h"
+
+3-islower.c/    0           0     0     644     233       `
+#include "main.h"
+
 /**
- * _islower - function to check for lowercase character
- * @c:  is the int that will use for the argument of the function
- * Return: 0
+ * _islower - checks for lowercase character.
+ *
+ * @c: char type letter
+ *
+ * Return: 1 if @c is lowercase, 0 otherwise
  */
 int _islower(int c)
 {
 	if (c >= 'a' && c <= 'z')
-	{
 		return (1);
-	}
 	else
 		return (0);
 }
 
-3-puts.c/       1478292704  1000  1000  100664  284       `
-#include "holberton.h"
-/**
- * _puts - function that prints a string, followed by a new line
- * @s: declaration of *str and paramters for the function _puts
- * Return: Always 0.
- */
-void _puts(char *s)
-{
-	int c;
+3-puts.c/       0           0     0     644     216       `
+#include "main.h"
 
-	for (c = 0; s[c] != 0; c++)
+/**
+ * _puts - prints a string to stdout
+ * @str: pointer to the string to print
+ */
+void _puts(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(s[c]);
+		_putchar(str[i]);
 	}
 	_putchar('\n');
 }
-3-strcmp.c/     1478292970  1000  1000  100664  356       `
-#include "holberton.h"
+3-strcmp.c/     0           0     0     644     376       `
+#include "main.h"
+
 /**
- * _strcmp - function that compares two strings
- * @s2: paramater for string 2
- * @s1: paramater for string 1
- * Return: Always 0.
+ * _strcmp - compares two strings
+ * @s1: first string to compare
+ * @s2: second string to compare
+ *
+ * Return: less than 0 if s1 is less than s2, 0 if they're equal,
+ * more than 0 if s1 is greater than s2
  */
 int _strcmp(char *s1, char *s2)
 {
-	int a = 0;
-
-	while (s1[a] != '\0')
+	while (*s1 == *s2)
 	{
-		if (s1[a] < s2[a])
-			return (s1[a] - s2[a]);
-		if (s1[a] > s2[a])
-			return (s1[a] - s2[a]);
-		a++;
+		if (*s1 == '\0')
+		{
+			return (0);
+		}
+		s1++;
+		s2++;
 	}
-	return (0);
+	return (*s1 - *s2);
 }
-3-strspn.c/     1478293136  1000  1000  100664  474       `
-#include "holberton.h"
-#include <stdio.h>
+3-strspn.c/     0           0     0     644     564       `
+#include "main.h"
 
 /**
- * _strspn - returns number of bytes in the initial sengment s
- * @s: for the count action
- * @accept: parameter for char
- * Return: number of bytes;
+ * *_strspn - gets the length of a prefix substring
+ * @s: string to evaluate
+ * @accept: string containing the list of characters to match in s
+ *
+ * Return: the number of bytes in the initial segment
+ * of s which consist only of bytes from accept
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int num;
-	int i, j, t;
+	int i, j, f, flag;
 
-	i = 0;
-	while (s[i] != '\0')
+	f = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		t = 0;
+		flag = 0;
 		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
-				t = 1;
+			{
+				f++;
+				flag = 1;
+			}
 		}
-		j = 0;
-		if (t == 0)
-			break;
-		num++;
-		i++;
+		if (flag == 0)
+		{
+			return (f);
+		}
 	}
-	return (i);
+
+	return (0);
 }
-4-isalpha.c/    1478293223  1000  1000  100664  301       `
-#include "holberton.h"
+4-isalpha.c/    0           0     0     644     286       `
+#include "main.h"
+
 /**
- * _isalpha - function to check if c is a letter, lowercase or uppercase
- * @c: is the int that will use for the argument of the function
- * Return: 0
+ * _isalpha - checks for lowercase character
+ *
+ * @c: char type letter
+ *
+ * Return: 1 if c is lowercase or uppercase and 0  otherwise
  */
+
 int _isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((c >= 97 && c <= 123) || (c >= 65 && c <= 91))
 	{
 		return (1);
 	}
 	else
+	{
 		return (0);
+	}
 }
-
-4-strpbrk.c/    1478293345  1000  1000  100664  468       `
-#include "holberton.h"
+4-strpbrk.c/    0           0     0     644     505       `
+#include "main.h"
+#include <stdio.h>
 
 /**
- * _strpbrk - locates the first occurrence in the string s of any
- * of the bytes in the string accept
- * @s: for the char
- * @accept: paramter for accept
- * Return: pointer to the byte s
+ * *_strpbrk - searches a string for any of a set of bytes
+ * @s: string to search
+ * @accept: stringcontaining the bytes to look for
+ *
+ * Return: pointer to the byte in s that matches one of the bytes in accept
+ * or NULL if no such byte is found
  */
-
 char *_strpbrk(char *s, char *accept)
 {
-	int i, t, j;
+	int i, j;
 
-	i = 0;
-	while (s[i] != '\0')
+	for (i = 0; *s != '\0'; i++)
 	{
-		t = 0;
 		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (s[i] == accept[j])
-				t = 1;
+			if (*s == accept[j])
+			{
+				return (s);
+			}
 		}
-		j = 0;
-		if (t == 1)
-			return (s + i);
-		i++;
+		s++;
 	}
-	return (0);
+
+	return (NULL);
 }
-5-strstr.c/     1478293425  1000  1000  100664  617       `
-#include "holberton.h"
+
+5-strstr.c/     0           0     0     644     512       `
+#include "main.h"
 #include <stdio.h>
+
 /**
- * _strstr - finds the first occurence of the substring needle
- * in the string haystack
- * @haystack: paramter for haystack
- * @needle: paramter for needle
+ * *_strstr - locates a substring
+ * @haystack: string to search in
+ * @needle: substring to look for
+ *
  * Return: pointer to the beginning of the located substring
+ * or NULL if the substring is not found
  */
 char *_strstr(char *haystack, char *needle)
 {
+	int i, j;
 
-	while (*haystack != '\0')
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		char *beginning = haystack;
-		char *pattern = needle;
-
-		while (*pattern == *haystack && *pattern != '\0'
-		       && *haystack != '\0')
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			haystack++;
-			pattern++;
+			if (haystack[i + j] != needle[j])
+				break;
 		}
-		if (*pattern == '\0')
-			return (beginning);
-		haystack = beginning + 1;
+		if (!needle[j])
+			return (&haystack[i]);
 	}
-	return ('\0');
+	return (NULL);
 }
+6-abs.c/        0           0     0     644     217       `
+#include "main.h"
 
-6-abs.c/        1478294274  1000  1000  100664  282       `
-#include "holberton.h"
-#include <stdio.h>
 /**
- * _abs - function that computes the absolute value of an integer
- * @n:  is the int that will use for the argument of the function
- * Return: 0
+ * _abs - compute the absolute value of an integer
+ * @n: int type number
+ * Return: absolute value of @n
  */
+
 int _abs(int n)
 {
-	if (n > 0 || n == 0)
+	if (n < 0)
+	{
+		return (n * -1);
+	}
+	else
 	{
 		return (n);
 	}
-	else
-		return (n * -1);
 }
-9-strcpy.c/     1478293854  1000  1000  100664  216       `
-#include <unistd.h>
+
+9-strcpy.c/     0           0     0     644     475       `
+#include "main.h"
+
 /**
- * _strcpy - function that copies the string pointed to by src
- * @dest: dest parameter
- * @src: src paramter
- * Return: dest char
+ * *_strcpy - copies the string pointed to by src
+ * including the terminating null byte (\0)
+ * to the buffer pointed to by dest
+ * @dest: pointer to the buffer in which we copy the string
+ * @src: string to be copied
+ *
+ * Return: the pointer to dest
  */
 char *_strcpy(char *dest, char *src)
 {
+	int len, i;
+
+	len = 0;
+
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+
 	return (dest);
 }
-main.c/         1478294436  1000  1000  100664  147       `
-#include "holberton.h"
 
-int main(void)
+memset.c/       0           0     0     644     329       `
+#include "main.h"
+
+/**
+ * *_memset - fills memory with a constant byte
+ * @s: memory area to be filled
+ * @b: char to copy
+ * @n: number of times to copy b
+ *
+ * Return: pointer to the memory area s
+ */
+char *_memset(char *s, char b, unsigned int n)
 {
-	_puts("\"At the end of the day, my goal was to be the best hacker\"\n\t- Kevin Mitnick");
-	return (0);
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
+
+	return (s);
 }
 
-_putchar.c/     1478289691  1000  1000  100664  247       `
+_putchar.c/     0           0     0     644     247       `
 #include <unistd.h>
 
 /**
@@ -368,3 +529,4 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
